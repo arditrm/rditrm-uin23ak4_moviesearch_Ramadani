@@ -17,7 +17,7 @@ export default function Search() {
   };
 
   useEffect(() => {
-    searchMovies('james-bond'); // fetch James Bond movies when component first mounts
+    searchMovies('james-bond');
   }, []);
 
   const handleSearch = (event) => {
@@ -25,7 +25,7 @@ export default function Search() {
     if (searchString) {
       searchMovies(searchString);
     } else {
-      searchMovies('james-bond'); // fetch James Bond movies again if search string is empty
+      searchMovies('james-bond');
     }
   };
 
@@ -43,8 +43,10 @@ export default function Search() {
       {movies && movies.map((movie) => (
         <div key={movie.imdbID}>
           <h2>{movie.Title}</h2>
-          <p><strong>Regissør:</strong> {movie.Director}</p>
-          <p><strong>År publisert:</strong> {movie.Year}</p>
+          <p><strong>Director:</strong> {movie.Director}</p>
+          <p><strong>Year:</strong> {movie.Year}</p>
+          <p><strong>Actors:</strong> {movie.Actors}</p>
+          <p><strong>Awards:</strong> {movie.Awards}</p>
           <img src={movie.Poster} alt={movie.Title} />
         </div>
       ))}
