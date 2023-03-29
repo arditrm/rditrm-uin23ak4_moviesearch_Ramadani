@@ -26,7 +26,7 @@ export default function Search() {
 
   return (
     <div>
-      <form onSubmit={handleSearch}>
+      <form className='run' onSubmit={handleSearch}>
         <input
           type="text"
           placeholder="Search for movies"

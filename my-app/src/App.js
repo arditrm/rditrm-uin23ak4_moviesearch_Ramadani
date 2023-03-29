@@ -30,7 +30,7 @@ export default function Search() {
   };
 
   return (
-    <div>
+    <div className="">
       <form onSubmit={handleSearch}>
         <input
           type="text"
@@ -40,16 +40,20 @@ export default function Search() {
         />
         <button type="submit">Search</button>
       </form>
-      {movies && movies.map((movie) => (
-        <div key={movie.imdbID}>
-          <h2>{movie.Title}</h2>
-          <p><strong>Director:</strong> {movie.Director}</p>
-          <p><strong>Year:</strong> {movie.Year}</p>
-          <p><strong>Actors:</strong> {movie.Actors}</p>
-          <p><strong>Awards:</strong> {movie.Awards}</p>
-          <img src={movie.Poster} alt={movie.Title} />
-        </div>
-      ))}
+      <div className="grid-movies">
+        {movies && movies.map((movie) => (
+          <div className='map' key={movie.imdbID}>
+            <img src={movie.Poster} alt={movie.Title} />
+            <div className="grid-movie-details">
+              <h2>{movie.Title}</h2>
+              <p><strong>Director:</strong> {movie.Director}</p>
+              <p><strong>Year:</strong> {movie.Year}</p>
+              <p><strong>Actors:</strong> {movie.Actors}</p>
+              <p><strong>Awards:</strong> {movie.Awards}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
